@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    rel="stylesheet"
+     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous">    
+</head>
+<body>
+    <title>Weather Dashboard</title>
+   
 
+    <div class="container-fluid">
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand">Weather Dashboard</a>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" id="city" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" id="submitWeather" type="submit">Search</button>
+        </form>
+      </nav>
+      <hr>
+      <div class= "row">
+      <div id = "searchedCity" class="col-md-4">
+        <p>Recently Searched:</p>
+  
+      </div>
+    <div class="col-md-1"></div>
+     <div class="weather-container">
+       <div class = "col">
+        <div id = "cityName"></div>
+        <div id ="icon"></div>
+        <br>
+        <div id ="temp-row"></div>
+        <div id ="feelsLike-row"></div>
+        <div id ="sky-row"></div>
+        <div id ="humidity-row"></div>
+        <div id ="windSpeed-row"></div>
+        
+     </div> 
+
+     
+
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
