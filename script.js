@@ -7,8 +7,7 @@ $(document).ready(function(){
 
         var city = $('#city').val();
         var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=imperial" + "&APPID=49b107df79df951ca90870bc8b2042c1"
-             
-
+        var forecast = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',us&mode=xml' + "&APPID=49b107df79df951ca90870bc8b2042c1"
         if (city !== ''){
             $.ajax({
 
@@ -20,7 +19,7 @@ $(document).ready(function(){
                 console.log(data.main.temp); 
 
                 var cityName = (data.name);
-                $("#cityName").html(cityName);
+                $("#cityName").html(cityName + " " + data.sys.country);
                 
 
                 var icon = (data.weather[0].icon);
@@ -40,6 +39,18 @@ $(document).ready(function(){
 
                 var windSpeed = Math.round(data.wind.speed);
                 $("#windSpeed-row").html("Wind Speed:  " + windSpeed + " MPH");
+
+             $.ajax({
+
+                url: forecast,
+                method:"GET",
+                datatype: "jsonp",
+                success: function(data){
+                    console.log(data);
+
+                }
+             })
+                
   }
             });
         } else{
