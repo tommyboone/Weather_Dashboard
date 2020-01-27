@@ -9,12 +9,72 @@
     rel="stylesheet"
      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous">    
+      <script src="https://kit.fontawesome.com/8cf68bdaad.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <title>Weather Dashboard</title>
    
+    <!-- Main heading -->
+    <div class="bg-dark pt-2 pb-2"> 
+      <div class="container">
+          <h1 class="text-center text-white">Weather Dashboard</h1>
+      </div>
+  </div>
+  <!-- End Main heading -->
 
-    <div class="container-fluid">
+  <!-- Start container -->
+  <div class="container-fluid"> 
+
+      <!-- Start row -->
+      <div class="row"> 
+
+          <!-- Start column -->
+          <div class="col-lg-3 bg-light pt-3 pb-3"> 
+
+              <h5>Search for a city:</h5>
+
+              <!-- Start input group -->
+              <div class="input-group mb-3"> 
+                  <input id="searchTerm" type="text" class="form-control" placeholder="City name..." class="input-group-append">
+                  <button id="searchBtn" class="btn btn-primary submit" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+              </div>
+              <!-- End input group -->   
+
+              <!-- Start card -->
+              <div class="card"> 
+                  <ul class="list-group list-group-flush list">
+                  </ul>
+              </div> 
+              <!-- End card -->
+          </div> 
+          <!-- End column -->
+
+          <!-- Start column -->
+          <div class="col-lg-9"> 
+              <div id="currentCity" class="mt-4">
+                  
+              </div>
+          </div> 
+          <!-- End column -->
+      </div> 
+      <!-- End row -->
+
+      <!-- Start forecast container -->
+      <div class="mt-4 col-md-12"> 
+
+          <h5 id="forecastH5" class="mt-3 hide">5-Day Forecast:</h5>
+
+          <!-- Start row -->
+          <div id="forecast" class="row"> 
+
+
+          </div> 
+          <!-- End row -->
+      </div> 
+      <!-- End forecast container -->
+  </div> 
+
+    <!-- <div class="container-fluid">
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand">Weather Dashboard</a>
         <form class="form-inline">
@@ -23,7 +83,7 @@
         </form>
       </nav>
       <hr>
-      <main>
+      <div>
       <div class= "row">
       <div id = "searchedCity" class="col-md-4">
         <p>Recently Searched:</p>
@@ -57,8 +117,8 @@
           </tbody>
         </table>
   
-      </div>
-    <div class="col-md-1"></div>
+      </div> -->
+    <!-- <div class="col-md-1"></div>
      <div class="weather-container">
        <div class = "col">
         <div id = "cityName"></div>
@@ -70,6 +130,7 @@
         <div id ="windSpeed-row"></div>
         
      </div> 
+   -->
 
      
 
