@@ -1,4 +1,4 @@
-
+//UV Index and 5 day forecast do not persist on click from search history
 
 $(document).ready(function () {
 
@@ -46,8 +46,6 @@ $(document).ready(function () {
                 var tempF = (response.main.temp);
                 console.log(Math.round(tempF));
 
-
-
                 getCurrentConditions(response);
                 getCurrentForecast(response);
 
@@ -81,7 +79,6 @@ $(document).ready(function () {
     }
 
     $(document).on('click', '.list-group-item', function () {
-        console.log("You got clicked!", $(this).text());
         getWeather($(this).text());
     })
 
@@ -123,7 +120,7 @@ $(document).ready(function () {
         }).then(function (response) {
 
             console.log(response)
-            console.log(response.dt)
+           
             $('#forecast').empty();
 
             var results = response.list;
@@ -142,11 +139,6 @@ $(document).ready(function () {
                 var dayIndex = 0;
 
                 for (var i = 0; i < results.length; i++) {
-
-                    var day = Number(results[i].dt_txt.split('-')[2].split(' ')[0]);
-                    var hour = results[i].dt_txt.split('-')[2].split(' ')[1];
-                    console.log(day);
-                    console.log(hour);
 
                     if (results[i].dt_txt.indexOf("12:00:00") !== -1) {
 
