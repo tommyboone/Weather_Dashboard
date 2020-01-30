@@ -6,7 +6,7 @@ $(document).ready(function () {
     var date = new Date();
     var uvIndex = $("<p>").html("UV Index: ");
 
-    
+
 
     var searchedCities = JSON.parse(localStorage.getItem("city-list"))
     if (searchedCities) {
@@ -28,12 +28,9 @@ $(document).ready(function () {
         $("#searchTerm").val("");
         makeList(city);
         saveLocalStorage(city);
-       
+
         getWeather(city);
-
-
-
-
+        getCurrentForecast(city);
 
 
     });
@@ -54,17 +51,12 @@ $(document).ready(function () {
                 getCurrentConditions(response);
                 getCurrentForecast(response);
 
-
-
             })
     }
 
     function makeList(city) {
         let listItem = $("<li>").addClass("list-group-item").text(city);
         $(".list").append(listItem);
-
-
-
     }
 
     function saveLocalStorage(newCity) {
@@ -82,12 +74,12 @@ $(document).ready(function () {
             localStorage.setItem("city-list", strList);
         }
 
-
-
     }
 
     $(document).on('click', '.list-group-item', function () {
         getWeather($(this).text());
+        getCurrentForecast($(this).text());
+        getCurrentConditions($(this).text());
 
 
     })
@@ -122,7 +114,7 @@ $(document).ready(function () {
 
     }
 
-    function getCurrentForecast() {
+    function getCurrentForecast(city) {
 
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + apiKey,
@@ -136,8 +128,6 @@ $(document).ready(function () {
             var results = response.list;
             console.log(results)
 
-            //declare start date to check against
-            //have end date, endDate = startDate + 5
 
             $.ajax({
                 url: "https://api.openweathermap.org/data/2.5/uvi?lat=" + response.city.coord.lat + "&lon=" + response.city.coord.lon + apiKey,
@@ -189,7 +179,7 @@ $(document).ready(function () {
                         $("#forecast").append(card);
                         dayIndex++;
 
-                       
+
 
 
                     }
