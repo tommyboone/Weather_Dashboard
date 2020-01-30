@@ -2,10 +2,11 @@
 
 $(document).ready(function () {
 
-    var city = $("#searchTerm").val();
     var apiKey = "&APPID=49b107df79df951ca90870bc8b2042c1";
     var date = new Date();
     var uvIndex = $("<p>").html("UV Index: ");
+
+    
 
     var searchedCities = JSON.parse(localStorage.getItem("city-list"))
     if (searchedCities) {
@@ -27,7 +28,7 @@ $(document).ready(function () {
         $("#searchTerm").val("");
         makeList(city);
         saveLocalStorage(city);
-        // full url to call api
+       
         getWeather(city);
 
 
@@ -67,13 +68,15 @@ $(document).ready(function () {
     }
 
     function saveLocalStorage(newCity) {
+
         var oldCityList = JSON.parse(localStorage.getItem("city-list"))
         if (!oldCityList) {
             var cityList = [];
             cityList.push(newCity);
             var strList = JSON.stringify(cityList);
             localStorage.setItem("city-list", strList);
-        } else {
+        }
+        else {
             oldCityList.push(newCity);
             var strList = JSON.stringify(oldCityList);
             localStorage.setItem("city-list", strList);
@@ -146,7 +149,7 @@ $(document).ready(function () {
                 $(uvIndex).append(uvSpan);
 
 
-                if (data.value < 5) {
+                if (data.value <= 5) {
                     $(".uv-span").css("background-color", "green");
                 }
 
@@ -185,6 +188,10 @@ $(document).ready(function () {
                         card.append(cardBody);
                         $("#forecast").append(card);
                         dayIndex++;
+
+                       
+
+
                     }
                 }
             })
